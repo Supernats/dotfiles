@@ -33,6 +33,7 @@ alias git='hub'
 eval "$(hub alias -s)"
 
 alias gist='gist --copy'
+source $HOME/.bin/git_completion.sh
 
 # this is a fucking doozy
 export FZF_DEFAULT_COMMAND='\
