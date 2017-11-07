@@ -1,0 +1,7 @@
+_git_server_checkout ()
+{
+  git fetch
+  git checkout $(git tag | grep '$1-\d\+' | sort -d -r | awk 'NR==1;')
+}
+
+_git_server_checkout $1

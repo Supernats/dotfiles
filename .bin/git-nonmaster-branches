@@ -1,0 +1,10 @@
+_git_nonmaster_branches ()
+{
+  git for-each-ref refs/heads | cut -d/ -f3- | \
+    grep -v "^master$" | \
+    grep -v "^production$" | \
+    grep -v "^s-nathan$" | \
+    grep -v "^$(git current)$"
+}
+
+_git_nonmaster_branches

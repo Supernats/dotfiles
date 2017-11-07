@@ -1,0 +1,5 @@
+_git_purge_untracked () {
+  rm $( git untracked )
+}
+
+_git_purge_untracked

@@ -1,0 +1,7 @@
+_git_search_files ()
+{
+  cat nathan-ignored-files nathan-git-files
+}
+
+echo "running script\n"
+_git_search_files

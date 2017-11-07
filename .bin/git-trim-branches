@@ -1,0 +1,13 @@
+_git_trim_branches ()
+{
+  if [ "$1" = "--force" ]
+  then
+    FLAG='-D'
+  else
+    FLAG='-d'
+  fi
+
+  git nonmaster-branches | xargs -I {} git branch $FLAG {}
+}
+
+_git_trim_branches

@@ -1,0 +1,112 @@
+# This used to be the default .slate file.
+
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+
+# Show app icons and background apps, spreads icons in the same place
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
+config windowHintsSpread true
+
+# Set up Vim-style movement
+alias leftKey h
+alias downKey j
+alias upKey k
+alias rightKey l
+
+# Set up 'num pad'
+alias bottomLeftPad n
+alias bottomCenterPad m
+alias bottomRightPad ,
+alias middleLeftPad h
+alias middleCenterPad j
+alias middleRightPad k
+alias topLeftPad u
+alias topCenterPad i
+alias topRightPad o
+
+alias hideKey y
+alias showKey p
+
+# Set up mother of all modifier smashes as the omni key
+alias omni ctrl;alt;shift;cmd
+
+# Declare applications
+alias browser 'Google Chrome'
+alias terminal 'iTerm2'
+alias workChat 'HipChat'
+alias spotify 'Spotify'
+alias fileGUI 'Finder'
+alias slackChat 'Slack'
+alias iMessage 'Messages'
+alias databaseGUI 'Sequel Pro'
+
+
+# Abstract positions
+alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+alias topleft corner top-left resize:screenSizeX/2;screenSizeY/2
+alias topright corner top-right resize:screenSizeX/2;screenSizeY/2
+alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
+alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
+
+# Numpad location Bindings
+bind ${middleLeftPad}:${omni} ${lefthalf}
+bind ${middleCenterPad}:${omni} ${full}
+bind ${middleRightPad}:${omni} ${righthalf}
+
+# Resize Bindings
+# bind ${rightKey}:alt       resize +10% +0
+# bind ${leftKey}:alt        resize -10% +0
+# bind ${upKey}:alt          resize +0   -10%
+# bind ${downKey}:alt        resize +0   +10%
+# bind ${rightKey}:ctrl;alt  resize -10% +0 bottom-right
+# bind ${leftKey}:ctrl;alt   resize +10% +0 bottom-right
+# bind ${upKey}:ctrl;alt     resize +0   +10% bottom-right
+# bind ${downKey}:ctrl;alt   resize +0   -10% bottom-right
+
+# Push Bindings
+# bind ${rightKey}:ctrl;cmd  push right bar-resize:screenSizeX/3
+# bind ${leftKey}:ctrl;cmd   push left  bar-resize:screenSizeX/3
+# bind ${upKey}:ctrl;cmd     push up    bar-resize:screenSizeY/2
+# bind ${downKey}:ctrl;cmd   push down  bar-resize:screenSizeY/2
+
+# Nudge Bindings
+# bind ${rightKey}:shift;alt nudge +10% +0
+# bind ${leftKey}:shift;alt  nudge -10% +0
+# bind ${upKey}:shift;alt    nudge +0   -10%
+# bind ${downKey}:shift;alt  nudge +0   +10%
+
+# Throw Bindings
+bind 1:ctrl;alt;cmd throw 0 resize
+bind 2:ctrl;alt;cmd throw 1 resize
+bind ${rightKey}:ctrl;alt;cmd throw right resize
+bind ${leftKey}:ctrl;alt;cmd  throw left  resize
+bind ${upKey}:ctrl;alt;cmd    throw up    resize
+bind ${downKey}:ctrl;alt;cmd  throw down  resize
+
+# Focus Bindings - General
+bind ${rightKey}:cmd;alt    focus right
+bind ${leftKey}:cmd;alt     focus left
+bind ${upKey}:cmd;alt       focus up
+bind ${downKey}:cmd;alt     focus down
+bind ${upKey}:cmd;ctrl   focus behind
+
+# Focus Bindings - Application Specific
+bind b:${omni} focus ${browser}
+bind t:${omni} focus ${terminal}
+bind s:${omni} focus ${spotify}
+bind c:${omni} focus ${workChat}
+bind z:${omni} focus ${slackChat}
+bind i:${omni} focus ${iMessage}
+bind d:${omni} focus ${databaseGUI}
+
+# Hide or show current  window
+bind ${hideKey}:${omni} hide 'current'
+bind ${showKey}:${omni} show 'current'
+
+# Window Hints
+# set to use Vimium characters for hints
+bind ;:${omni} hint sadfjklewcmpgh

@@ -1,0 +1,9 @@
+tags
+zeus.json
+custom_plan.rb
+json_blobs/
+.envrc
+bin/sidekiq
+bin/m
+convenience/
+.ackrc

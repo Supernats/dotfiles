@@ -1,0 +1,5 @@
+_git_current () {
+  git rev-parse --abbrev-ref HEAD
+}
+
+_git_current

@@ -1,0 +1,5 @@
+_git_discard_changes_matching () {
+  git co -- $(git diff --name-only | grep $1)
+}
+
+_git_discard_changes_matching $1

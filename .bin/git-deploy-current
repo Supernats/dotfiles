@@ -1,0 +1,6 @@
+_git_deploy_current () {
+  git pull
+  branch=$( git current ) bundle exec cap $1 deploy
+}
+
+_git_deploy_current $1
