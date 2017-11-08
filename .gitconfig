@@ -28,3 +28,6 @@
 	default = simple
 [fetch]
 	prune = true
+[user]
+	name = "Nathan Seither"
+	email = "nathanseither@gmail.com"

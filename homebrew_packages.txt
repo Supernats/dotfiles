@@ -5,6 +5,7 @@ bcrypt
 bitlbee
 brogue
 cloc
+cmake
 cockatrice
 codeclimate/formulae/codeclimate
 colordiff
