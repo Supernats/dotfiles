@@ -1,0 +1,24 @@
+# Use less to page results
+--pager=less -r
+# Add file types
+--type-set=haml=.haml
+--type-set=css=.sass,.scss,.css
+--type-set=xml=.xml
+--type-set=html=.html
+--type-set=rb=.rb
+--type-set=erb=.erb
+--type-set=js=.js,.coffee,.js.coffee
+--type-set=log=.log
+--type-set=php=.php
+--type-set=py=.py
+--type-set=rake=.rake
+--type-set=haml=.haml,.html.haml
+--type-set=rabl=.json.rabl,.rabl
+--type-set=yml=.yml
+--type-set=objc=.h,.m
+--type-set=rbtest:match:/(_test\.rb)/
+--type-set=rbapp:match:/^((?!_test).)*.rb$/
+
+--ignore-dir=.idea
+--ignore-file=match:tags
+--nolog
