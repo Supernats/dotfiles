@@ -27,7 +27,8 @@ set ignorecase
 set smartcase
 set scrolloff=5
 set backspace=indent,eol,start
-
+set timeoutlen=1000
+set ttimeoutlen=50
 " colors
 set t_Co=256
 colorscheme navajo
@@ -134,3 +135,8 @@ nmap <leader>jsa :%.!arrow-logger<CR>;
 nmap <leader>jsm A // => <Esc>
 " Mark the highlighted lines for annotation
 vmap <leader>jsM :norm A # => <Esc>
+
+" Something in Sierra/High Sierra completely broke exiting insert mode.
+" Let's fix that.
+vnoremap <ESC> <C-c>
+inoremap <ESC> <C-c>

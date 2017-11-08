@@ -9,6 +9,20 @@ if empty(glob("~/.config/nvim/autoload/plug.vim"))
   autocmd VimEnter * PlugInstall | source ~/.config/nvim/init.vim
 endif
 
+" YCM might take a long time
+let g:plug_timeout=300
+
+" Also, YCM needs special handling
+function! BuildYCM(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.force
+    !./install.py
+  endif
+endfunction
+
 call plug#begin('~/.config/nvim/plugged')
 " Add or remove your Bundles here:
 Plug 'flazz/vim-colorschemes'
@@ -21,7 +35,6 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-markdown'
 Plug 'scrooloose/nerdtree'
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'janx/vim-rubytest'
 Plug 'danro/rename.vim'
 Plug 'diepm/vim-rest-console'
@@ -37,4 +50,5 @@ Plug 'w0rp/ale'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'mhinz/vim-grepper'
 Plug 'tpope/vim-vinegar'
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 call plug#end()

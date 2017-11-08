@@ -33,7 +33,7 @@ alias git='hub'
 eval "$(hub alias -s)"
 
 alias gist='gist --copy'
-source $HOME/.bin/git_completion.sh
+source ~/.bin/git-completion.sh
 
 # this is a fucking doozy
 export FZF_DEFAULT_COMMAND='\
@@ -54,6 +54,8 @@ export PS1 PS2
 eval "$(direnv hook bash)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+alias pip='pip2'
 
 # rbenv
 eval "$(rbenv init -)"
