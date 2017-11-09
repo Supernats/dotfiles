@@ -1,0 +1,8 @@
+.git
+.gitignore
+.link.sh
+README.md
+homebrew_cask_packages.txt
+homebrew_packages.txt
+homebrew_services.txt
+nonlinkers.txt

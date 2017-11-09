@@ -1,15 +1,10 @@
 #!/bin/bash
 
 DIR=$(cd $(dirname $0) && pwd -P)
+EXCLUDE_STRING=`cat nonlinkers.txt | sed -e "s/\(.*\)/-not -name \1/" | tr "\n" " "`
 
 DOTFILES=`find $DIR \
-  -not -name ".git" \
-  -not -name ".gitignore" \
-  -not -name "link.sh"\
-  -not -name "README.md" \
-  -not -name "homebrew_packages.txt" \
-  -not -name "homebrew_cask_packages.txt" \
-  -not -name "homebrew_services.txt" \
+  $EXCLUDE_STRING \
   -mindepth 1 \
   -maxdepth 1 \
   2>/dev/null`
