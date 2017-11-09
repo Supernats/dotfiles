@@ -2,13 +2,13 @@
 
 DIR=$(cd $(dirname $0) && pwd -P)
 echo "\nCreating symlinks...\n"
-$DIR/.link.sh
+$DIR/link.sh
 
 echo "Installing Homebrew...\n"
-$DIR/.install_homebrew.sh
+$DIR/install_homebrew.sh
 
 echo "Installing NeoVim Python dependencies...\n"
 $DIR/pythonify_neovim.sh
 
 echo "DONE!\n"
-0
+exit 0

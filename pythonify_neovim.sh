@@ -1,4 +1,4 @@
 #!/bin/sh -
 
-pip install neovim
-0
+/usr/local/bin/pip3 install neovim
+exit 0
