@@ -1,8 +1,9 @@
 .git
 .gitignore
 .link.sh
+Brewfile
 README.md
-homebrew_cask_packages.txt
-homebrew_packages.txt
-homebrew_services.txt
+install_homwebrew.sh
 nonlinkers.txt
+pythonify_neovim.sh
+setup.sh

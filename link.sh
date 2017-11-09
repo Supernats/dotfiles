@@ -14,3 +14,4 @@ for file in $DOTFILES; do
   rm -rf $destination
   ln -s $file $destination
 done
+0

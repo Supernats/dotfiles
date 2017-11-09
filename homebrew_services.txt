@@ -1,4 +1,0 @@
-bitlbee
-mysql
-postgresql
-redis
