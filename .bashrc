@@ -38,12 +38,12 @@ source ~/.bin/git-completion.sh
 # this is a fucking doozy
 export FZF_DEFAULT_COMMAND='\
     cat <(if test -f ignored_but_important.txt; \
-    then cat ignored_but_important.txt; fi \|
-    xargs -I {} find {} -type f) <(git ls-files) \|
-    grep -v "vendor\/assets" \|
-    grep -v "^public" \|
-    grep -v "app\/assets\/images" \|
-    grep -v "app\/assets\/fonts" \|
+    then cat ignored_but_important.txt; fi | \
+    xargs -I {} find {} -type f) <(git ls-files) | \
+    grep -v "vendor\/assets" | \
+    grep -v "^public" | \
+    grep -v "app\/assets\/images" | \
+    grep -v "app\/assets\/fonts" | \
     sort'
 
 # random stuff I stole from Ned
