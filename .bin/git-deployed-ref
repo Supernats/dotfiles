@@ -1,17 +1,15 @@
 #!/bin/bash
 
+# This is suuuuper specific to my current company's workflow.
 _git_deployed_ref ()
 {
-  # echo $1-\d\+
-  # local loc_var = "$1-\d\+"
-  loc_var = "foo"
-  local loc_var
-  echo
-  # echo $loc_var
-  echo "\"loc_var\" in function = $loc_var"
-  # git fetch
-  # git tag | grep ${1}-\d\+ | sort -d -r | awk 'NR==1;1'
-  # git tag | grep $TEMPSTR | sort -d -r | awk 'NR==1;1'
+  git fetch
+
+  local GREPSTR="^"
+  GREPSTR+=$1
+  GREPSTR+="-\d\+"
+
+  git tag | grep $GREPSTR | sort -d -r | awk 'NR==1;'
 }
 
 _git_deployed_ref $1
