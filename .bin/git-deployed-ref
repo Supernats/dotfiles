@@ -3,13 +3,14 @@
 # This is suuuuper specific to my current company's workflow.
 _git_deployed_ref ()
 {
-  git fetch
+  git fetch &> /dev/null
 
   local GREPSTR="^"
   GREPSTR+=$1
   GREPSTR+="-\d\+"
 
-  git tag | grep $GREPSTR | sort -d -r | awk 'NR==1;'
+  local TAG=$(git tag | grep $GREPSTR | sort -d -r | awk 'NR==1;')
+  git rev-parse --verify $TAG
 }
 
 _git_deployed_ref $1
