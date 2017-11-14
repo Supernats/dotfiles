@@ -1,3 +1,4 @@
+/.config/direnv/*
 /.config/heroku
 /.config/hub
 /.config/karabiner/assets/*
