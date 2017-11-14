@@ -19,7 +19,6 @@ alias vi='nvim'
 
 # tmux stuff
 alias mux="tmux -2"
-alias muxjoin='tmux -2 new-session -t 0'
 
 # Ruby stuff
 alias berake='bundle exec rake'
