@@ -140,3 +140,6 @@ vmap <leader>jsM :norm A # => <Esc>
 " Let's fix that.
 vnoremap <ESC> <C-c>
 inoremap <ESC> <C-c>
+
+" Get that automated ALE fixing
+let g:ale_fixers = { 'ruby': 'rubocop' }
