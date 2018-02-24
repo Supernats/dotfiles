@@ -4,3 +4,6 @@
 /.config/karabiner/assets/*
 /.config/nvim/autoload/*
 /.config/nvim/plugged/*
+/.config/codeclimate/*
+.config/configstore/*
+.config/gtk-2.0/*
