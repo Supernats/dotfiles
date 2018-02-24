@@ -231,6 +231,8 @@
 	<string>679BE699-40BA-4227-AAB0-AEE5086C2684</string>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
+	<key>LeftOption</key>
+	<integer>2</integer>
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
@@ -271,11 +273,13 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 151 606 469 0 0 1680 1050 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>266 580 1018 447 0 0 1680 1027 </string>
+	<string>266 515 937 512 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1680 1050 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>212 101 570 452 0 0 1680 1027 </string>
+	<string>0 0 1680 1050 0 0 1680 1027 </string>
+	<key>NSWindow Frame iTerm Window 2</key>
+	<string>0 0 2560 1440 0 0 2560 1417 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -915,12 +919,18 @@
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>FE17A229-09A6-4B38-95B7-2204EC777CAE</string>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>531773166.395504</real>
 	<key>OpenTmuxWindowsIn</key>
 	<integer>0</integer>
+	<key>PasteTabToStringTabStopSize</key>
+	<integer>4</integer>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -956,6 +966,8 @@
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/nathan/work/dotfiles/iterm2</string>
+	<key>RightOption</key>
+	<integer>3</integer>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
@@ -965,7 +977,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-11-13T20:15:24Z</date>
+	<date>2018-01-15T21:25:41Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
