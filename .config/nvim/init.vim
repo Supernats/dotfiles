@@ -29,6 +29,7 @@ set scrolloff=5
 set backspace=indent,eol,start
 set timeoutlen=1000
 set ttimeoutlen=50
+set textwidth=80
 " colors
 set t_Co=256
 colorscheme navajo
@@ -143,3 +144,10 @@ inoremap <ESC> <C-c>
 
 " Get that automated ALE fixing
 let g:ale_fixers = { 'ruby': 'rubocop' }
+
+" Vim-Test bindingings
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>

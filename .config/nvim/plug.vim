@@ -1,6 +1,6 @@
-" ========
-"   Plug
-" ========
+" =====================================================================
+" Plug
+" =====================================================================
 
 " Install vim-plug if we don't already have it
 if empty(glob("~/.config/nvim/autoload/plug.vim"))
@@ -25,30 +25,58 @@ endfunction
 
 call plug#begin('~/.config/nvim/plugged')
 " Add or remove your Bundles here:
-Plug 'flazz/vim-colorschemes'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-markdown'
-Plug 'scrooloose/nerdtree'
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'janx/vim-rubytest'
+" =====================================================================
+" General packages with no post-install
+" =====================================================================
+Plug 'bling/vim-airline'
 Plug 'danro/rename.vim'
 Plug 'diepm/vim-rest-console'
-Plug 'gioele/vim-autoswap'
-Plug 'bling/vim-airline'
-Plug 'chrisbra/csv.vim'
-Plug 'skalnik/vim-vroom'
-Plug 'vim-scripts/AdvancedSorters'
-Plug 'ngmy/vim-rubocop'
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'w0rp/ale'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'flazz/vim-colorschemes'
+Plug 'gioele/vim-autoswap'
+Plug 'janko-m/vim-test'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'kien/rainbow_parentheses.vim'
 Plug 'mhinz/vim-grepper'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/vim-slumlord'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
+Plug 'vim-scripts/AdvancedSorters'
+Plug 'w0rp/ale'
+" =====================================================================
+" General packages with post-install
+" =====================================================================
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" =====================================================================
+" Language specific packages
+" =====================================================================
+" =====================================================================
+" CSV
+" =====================================================================
+Plug 'chrisbra/csv.vim', { 'for': 'csv' }
+" =====================================================================
+" Golang
+" =====================================================================
+Plug 'fatih/vim-go', { 'for': 'go' }
+" =====================================================================
+" Markdown
+" =====================================================================
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+" =====================================================================
+" PlantUML
+" =====================================================================
+Plug 'aklt/plantuml-syntax'
+" =====================================================================
+" Ruby
+" =====================================================================
+Plug 'janx/vim-rubytest', { 'for': 'ruby' }
+Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
+Plug 'skalnik/vim-vroom', { 'for': 'ruby' }
 call plug#end()
