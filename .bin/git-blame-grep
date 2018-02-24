@@ -1,0 +1,142 @@
+#!/usr/local/bin/ruby -w
+
+class GitGrepAuthor
+  class << self
+    def call(grepstring)
+      new(grepstring).call
+    end
+  end
+
+  def initialize(grepstring)
+    @grepstring = grepstring
+  end
+
+  def call
+    return puts "Needs a grepstring!" unless grepstring&.length&.positive?
+
+    blames.each do |blame|
+      puts blame
+    end
+  end
+
+  private
+
+  attr_reader :grepstring
+
+  def grep_results
+    @grep_results ||= `git grep -n "#{grepstring}"`
+  end
+
+  def data_clumps
+    @data_clumps ||=
+      grep_results.
+      split("\n").
+      map(&GrepClump.method(:new))
+  end
+
+  def for_printing
+    # shas.zip(author_strings)
+    blames.map(&:line)
+  end
+
+  def author_strings
+    blames.map(&:author)
+  end
+
+  def shas
+    blames.map(&:sha)
+  end
+
+  def blames
+    @blames ||= data_clumps[0...5].map(&BlameInfo.method(:new))
+  end
+
+  class BlameInfo
+    def initialize(grep_clump)
+      @grep_clump = grep_clump
+    end
+
+    def to_s
+      <<~HERE
+        {
+          SHA1: #{sha},
+          Author Name: #{author_name},
+          Author Email: #{author_email},
+          Commit Title: #{message},
+          Source: #{line}
+        }
+      HERE
+    end
+
+    def to_h
+      {
+        "SHA1" => sha,
+        "Author Name" => author_name,
+        "Author Email" => author_email,
+        "Commit Title" => message,
+        "Source" => line,
+      }
+    end
+
+    def author_name
+      blame_result.split("\n")&.[](1)&.split(" ")[1..-1].join(" ")
+    end
+
+    def sha
+      blame_result.split("\n")&.[](0)&.split(" ")[0]
+    end
+
+    def author_email
+      blame_result.split("\n")&.[](2)&.split(" ")[1].delete("<").delete(">")
+    end
+
+    def message
+      blame_result.split("\n")&.[](9)&.split(" ")[1..-1].join(" ")
+    end
+
+    def line
+      blame_result.split("\n")&.[](12)&.strip
+    end
+
+    private
+
+    attr_reader :grep_clump
+
+    def blame_result
+      return if grep_clump.empty?
+
+      @blame_result ||=
+        `git blame --porcelain -L \
+          #{grep_clump.line},#{grep_clump.line} \
+          #{grep_clump.path}`
+    end
+  end
+
+  class GrepClump
+    def initialize(grepline)
+      @grepline = grepline
+    end
+
+    def empty?
+      ![path, line].all?
+    end
+
+    def path
+      @path ||= grepline.match(regex)&.[](1)
+    end
+
+    def line
+      @line ||= grepline.match(regex)&.[](2)
+    end
+
+    private
+
+    attr_reader :grepline
+
+    def regex
+      /^([\w\/\.]+):(\d+)/
+    end
+  end
+end
+
+GitGrepAuthor.call(ARGV.first)
