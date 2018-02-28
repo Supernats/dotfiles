@@ -30,6 +30,7 @@ call plug#begin('~/.config/nvim/plugged')
 " =====================================================================
 Plug 'bling/vim-airline'
 Plug 'danro/rename.vim'
+Plug 'darfink/vim-plist'
 Plug 'diepm/vim-rest-console'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'flazz/vim-colorschemes'
