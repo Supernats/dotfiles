@@ -45,9 +45,7 @@ describe NathanUtility::BuildHashPath do
     end
 
     it 'returns an array of arrays showing all hash keys' do
-      output = NathanUtility::BuildHashPath[input]
-
-      assert_equal expected.sort, output.sort
+      assert_equal expected.sort, NathanUtility::BuildHashPath.sort
     end
   end
 end
