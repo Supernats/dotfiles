@@ -1,9 +1,10 @@
 module NathanUtility
   module ClipboardCopy
-    def [](string)
+    def call(string)
       IO.popen('pbcopy', 'w') { |f| f.write(string) }
     end
 
-    module_function :[]
+    alias_method :[], :call
+    module_function :call, :[]
   end
 end

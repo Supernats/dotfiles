@@ -1,6 +1,8 @@
-Dir.entries(File.dirname(__FILE__)).each do |file|
-  next unless File.extname(file) == '.rb'
-  next if file =~ /#{Regexp.quote(File.basename(__FILE__))}/
+# frozen_string_literal: true
 
-  require_relative File.basename(file, File.extname(file))
+LIB_DIR_STRING = 'lib'
+Dir.entries(File.join(File.dirname(__FILE__), LIB_DIR_STRING)).each do |file|
+  next unless File.extname(file) == '.rb'
+
+  require_relative "lib/#{File.basename(file, File.extname(LIB_DIR_STRING))}"
 end
