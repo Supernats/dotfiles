@@ -2,9 +2,9 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require 'minitest/spec'
 
-require_relative '../lib/harvest_hash_keys'
+require_relative "../lib/#{File.basename(__FILE__).gsub(/_test.rb$/, '')}"
 
-describe NathanUtility::HarvestHashKeys do
+describe NathanUtility::HarvestHashValues do
   describe '::[]' do
     let(:input) do
       {
@@ -35,7 +35,7 @@ describe NathanUtility::HarvestHashKeys do
     end
 
     it 'returns all non-hash values in given hash' do
-      assert_equal expected.sort, NathanUtility::HarvestHashKeys[input].sort
+      assert_equal expected.sort, NathanUtility::HarvestHashValues[input].sort
     end
   end
 end
