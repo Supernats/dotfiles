@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require 'minitest/spec'
 
-require_relative '../lib/clipboard_copy'
+require_relative "../lib/#{File.basename(__FILE__).gsub(/_test.rb$/, '')}"
 
 describe NathanUtility::ClipboardCopy do
   describe '::[]' do
