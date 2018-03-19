@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+FULL_GEMFILE_PATH="$(pwd)/Gemfile.lock"
+INSTALLED_BUNDLER_VERSION=$(bundler --version)
+BUNDLED_WTH_VERSION=$(tail -n 1 $FULL_GEMFILE_PATH | tr -d " ")
+
+if [[ "$(tail -n 2 $FULL_GEMFILE_PATH | head -n 1)" == "BUNDLED WITH" ]];
+  then
+    if [[ $BUNDLED_WTH_VERSION > $INSTALLED_BUNDLER_VERSION ]];
+      then gem install bundler -v $BUNDLED_WTH_VERSION;
+      else echo "Your Bundler version is already up to date."
+    fi;
+  else echo "You don't have a valid lockfile";
+fi;
