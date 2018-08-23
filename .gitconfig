@@ -6,8 +6,9 @@
   tracking-push = "!git push -u origin $(git current)"
   untracked = "!git ls-files --others --exclude-standard"
   edit-untracked = "!f() { ${EDITOR} $(git untracked); }; f"
-  fuck-it = co -- ./
+  fuck-it = "!git checkout -- $(git rev-parse --show-toplevel)"
   unstaged = diff --name-only
+  message = show -s --format=%B
 [color]
   ui = auto
 [color "branch"]
