@@ -17,9 +17,6 @@ export EDITOR='nvim'
 alias vim='nvim'
 alias vi='nvim'
 
-# tmux stuff
-alias mux="tmux -2"
-
 # Ruby stuff
 alias berake='bundle exec rake'
 alias be='bundle exec'
@@ -53,8 +50,6 @@ export PS1 PS2
 eval "$(direnv hook bash)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-alias pip='pip2'
 
 # rbenv
 eval "$(rbenv init -)"
