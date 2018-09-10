@@ -34,6 +34,11 @@ set textwidth=80
 set t_Co=256
 colorscheme navajo
 
+" Spell check for Markdown and Git commits
+autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd FileType gitcommit setlocal spell
+set complete+=kspell
+
 " Rainbow Parens
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
