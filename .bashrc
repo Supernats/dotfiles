@@ -10,6 +10,9 @@ export HISTSIZE=$MILLION
 [[ ":$PATH:" != *":$HOME/.bin:"* ]] && export PATH="$HOME/.bin:${PATH}"
 [[ ":$PATH:" != *":/usr/local/bin:"* ]] && export PATH="/usr/local/bin:${PATH}"
 
+# Get homebrew setup
+[[ ":$PATH:" != *":/usr/local/sbin:"* ]] && export PATH="/usr/local/sbin:${PATH}"
+
 # update bash history after each command
 export PROMPT_COMMAND="history -a"
 
