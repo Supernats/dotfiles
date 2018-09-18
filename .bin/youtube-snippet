@@ -1,0 +1,91 @@
+#!/usr/bin/env ruby
+require 'securerandom'
+
+klass_name = "YoutubeSnipper#{SecureRandom.alphanumeric}"
+
+Object.const_set(
+  klass_name,
+  Class.new do
+    class << self
+      def call(args)
+        new(args).call
+      end
+
+      alias_method :[], :call
+
+      def time_in_seconds(string)
+        seconds, minutes, hours = string.split(':').reverse
+
+        seconds, minutes, hours = [seconds, minutes, hours].map(&:to_i)
+
+        (hours * 60 * 60) + (minutes * 60) + seconds
+      end
+
+      def magic_regex
+        %r(http(?:s?):\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&(amp;)?[\w\?‌​=]*)?)
+      end
+
+      def embed_string
+        'https://www.youtube.com/embed'
+      end
+
+      def watch_string
+        'https://www.youtube.com/watch'
+      end
+    end
+
+    def initialize(url:, start:, finish: nil)
+      @url = url
+      @start = start
+      @finish = finish
+    end
+
+    def call
+      finish ? close_ended_link : open_ended_link
+    end
+
+    def open_ended_link
+      [
+        self.class.watch_string,
+        '?',
+        URI.encode_www_form(v: slug, t: "#{start_in_seconds}s"),
+      ].join('')
+    end
+
+    def close_ended_link
+      [
+        self.class.embed_string,
+        '/',
+        slug,
+        '?',
+        URI.encode_www_form(start: start_in_seconds, end: finish_in_seconds),
+      ].join('')
+    end
+
+    def slug
+      url.match(self.class.magic_regex).captures.first
+    end
+
+    def finish_in_seconds
+      return unless finish
+
+      self.class.time_in_seconds(finish)
+    end
+
+    def start_in_seconds
+      self.class.time_in_seconds(start)
+    end
+
+    private
+
+    attr_reader *%i(
+      url
+      start
+      finish
+    )
+  end
+)
+
+url, start, finish = ARGV[0...3]
+klass = Object.const_get(klass_name)
+puts klass[url: url, start: start, finish: finish]
