@@ -1,0 +1,16 @@
+_git_find_merge () {
+  local COMMIT=$1
+  local BRANCH=${2:-master}
+
+  (  
+    git rev-list $COMMIT..$BRANCH --ancestry-path | cat -n;
+    git rev-list $COMMIT..$BRANCH --first-parent | cat -n;
+  ) |
+    sort -k2 -s |
+    uniq -f1 -d |
+    sort -n |
+    tail -1 |
+    cut -f2
+}
+
+_git_find_merge $1 $2
