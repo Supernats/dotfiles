@@ -39,17 +39,21 @@ Plug 'janko-m/vim-test'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'mhinz/vim-grepper'
+Plug 'romainl/vim-qf'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/vim-slumlord'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/AdvancedSorters'
 Plug 'w0rp/ale'
+Plug 'wannesm/wmgraphviz.vim'
 " =====================================================================
 " General packages with post-install
 " =====================================================================
@@ -59,13 +63,17 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Language specific packages
 " =====================================================================
 " =====================================================================
+" CoffeeScript
+" =====================================================================
+Plug 'kchmck/vim-coffee-script'
+" =====================================================================
 " CSV
 " =====================================================================
 Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 " =====================================================================
 " Golang
 " =====================================================================
-Plug 'fatih/vim-go', { 'for': 'go' }
+" Plug 'fatih/vim-go', { 'for': 'go' }
 " =====================================================================
 " Markdown
 " =====================================================================

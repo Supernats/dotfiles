@@ -150,6 +150,9 @@ inoremap <ESC> <C-c>
 " Get that automated ALE fixing
 let g:ale_fixers = { 'ruby': 'rubocop' }
 
+" Have Fugitive use 'hub' instead of 'git'
+let g:fugitive_git_executable = 'hub'
+
 " Vim-Test bindingings
 nmap <silent> t<C-n> :TestNearest<CR>
 nmap <silent> t<C-f> :TestFile<CR>

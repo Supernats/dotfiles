@@ -1,7 +1,12 @@
 #!/usr/bin/env ruby
-require 'securerandom'
 
-klass_name = "YoutubeSnipper#{SecureRandom.alphanumeric}"
+# frozen_string_literal: true
+
+require 'uri'
+
+random_string = Array.new(6).map { ('a'..'z').to_a.sample }.join('')
+
+klass_name = "YoutubeSnipper#{random_string}"
 
 Object.const_set(
   klass_name,
