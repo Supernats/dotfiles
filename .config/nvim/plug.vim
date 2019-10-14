@@ -29,12 +29,12 @@ call plug#begin('~/.config/nvim/plugged')
 " General packages with no post-install
 " =====================================================================
 Plug 'bling/vim-airline'
+Plug 'chrisbra/Recover.vim'
 Plug 'danro/rename.vim'
 Plug 'darfink/vim-plist'
 Plug 'diepm/vim-rest-console'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'flazz/vim-colorschemes'
-Plug 'gioele/vim-autoswap'
 Plug 'janko-m/vim-test'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'kien/rainbow_parentheses.vim'
