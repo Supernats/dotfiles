@@ -31,7 +31,8 @@ alias gdiff='git diff | tig'
 alias git='hub'
 eval "$(hub alias -s)"
 
-alias gist='gist --copy'
+alias reroot='cd $(git root)'
+
 source ~/.bin/git-completion.sh
 
 # this is a fucking doozy
