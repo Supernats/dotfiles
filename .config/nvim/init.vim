@@ -112,35 +112,11 @@ nnoremap <C-p> :FZF!<CR>
 nnoremap <Leader>b :Buffers<CR>
 
 " Grepper
-runtime autoload/grepper.vim
+runtime plugin/grepper.vim
+let g:grepper.tools = ['rg', 'git', 'ag', 'ack']
 
 " VRC Split Requests
 let g:vrc_split_request_body = 1
-
-" ===== Seeing Is Believing =====
-" Assumes you have a Ruby with SiB available in the PATH
-" If it doesn't work, you may need to `gem install seeing_is_believing -v 3.0.0.beta.6`
-" ...yeah, current release is a beta, which won't auto-install
-
-" Annotate every line
-nmap <leader>rbA :%!seeing_is_believing --timeout 12 --line-length 500 --number-of-captures 300 --alignment-strategy chunk<CR>;
-" Annotate marked lines
-nmap <leader>rba :%.!seeing_is_believing --timeout 12 --line-length 500 --number-of-captures 300 --alignment-strategy chunk --xmpfilter-style<CR>;
-" Remove annotations
-nmap <leader>rbd :%.!seeing_is_believing --clean<CR>;
-" Mark the current line for annotation
-nmap <leader>rbm A # => <Esc>
-" Mark the highlighted lines for annotation
-vmap <leader>rbM :norm A # => <Esc>
-
-" ===== arrow-logger.js =====
-" Assumes you have arrow-logger available in the PATH
-" Annotate marked lines
-nmap <leader>jsa :%.!arrow-logger<CR>;
-" Mark the current line for annotation
-nmap <leader>jsm A // => <Esc>
-" Mark the highlighted lines for annotation
-vmap <leader>jsM :norm A # => <Esc>
 
 " Something in Sierra/High Sierra completely broke exiting insert mode.
 " Let's fix that.

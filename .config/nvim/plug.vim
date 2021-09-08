@@ -9,20 +9,6 @@ if empty(glob("~/.config/nvim/autoload/plug.vim"))
   autocmd VimEnter * PlugInstall | source ~/.config/nvim/init.vim
 endif
 
-" YCM might take a long time
-let g:plug_timeout=300
-
-" Also, YCM needs special handling
-function! BuildYCM(info)
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
-  if a:info.status == 'installed' || a:info.force
-    !./install.py
-  endif
-endfunction
-
 call plug#begin('~/.config/nvim/plugged')
 " Add or remove your Bundles here:
 " =====================================================================
@@ -39,6 +25,7 @@ Plug 'janko-m/vim-test'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'mhinz/vim-grepper'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'romainl/vim-qf'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/vim-slumlord'
@@ -57,7 +44,6 @@ Plug 'wannesm/wmgraphviz.vim'
 " =====================================================================
 " General packages with post-install
 " =====================================================================
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " =====================================================================
 " Language specific packages
