@@ -34,13 +34,14 @@ alias omni ctrl;alt;shift;cmd
 
 # Declare applications
 alias browser 'Google Chrome'
-alias terminal 'iTerm2'
-alias workChat 'HipChat'
-alias spotify 'Spotify'
-alias fileGUI 'Finder'
-alias slackChat 'Slack'
-alias iMessage 'Messages'
 alias databaseGUI 'Sequel Pro'
+alias fileGUI 'Finder'
+alias messages 'Messages'
+alias microsoftTeams 'Microsoft Teams'
+alias slackChat 'Slack'
+alias spotify 'Spotify'
+alias terminal 'iTerm2'
+alias zoom 'zoom.us'
 
 
 # Abstract positions
@@ -96,12 +97,13 @@ bind ${upKey}:cmd;ctrl   focus behind
 
 # Focus Bindings - Application Specific
 bind b:${omni} focus ${browser}
-bind t:${omni} focus ${terminal}
-bind s:${omni} focus ${spotify}
-bind c:${omni} focus ${workChat}
-bind z:${omni} focus ${slackChat}
-bind i:${omni} focus ${iMessage}
+bind c:${omni} focus ${microsoftTeams}
 bind d:${omni} focus ${databaseGUI}
+bind q:${omni} focus ${messages}
+bind s:${omni} focus ${spotify}
+bind t:${omni} focus ${terminal}
+bind v:${omni} focus ${zoom}
+bind z:${omni} focus ${slackChat}
 
 # Hide or show current  window
 bind ${hideKey}:${omni} hide 'current'
