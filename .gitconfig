@@ -36,3 +36,5 @@
 	email = "nathanseither@gmail.com"
 [credential]
 	helper = osxkeychain
+[hub]
+	protocol = https
