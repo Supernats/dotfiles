@@ -38,9 +38,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
-Plug 'vim-scripts/AdvancedSorters'
 Plug 'w0rp/ale'
-Plug 'wannesm/wmgraphviz.vim'
 " =====================================================================
 " General packages with post-install
 " =====================================================================
@@ -57,21 +55,8 @@ Plug 'kchmck/vim-coffee-script'
 " =====================================================================
 Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 " =====================================================================
-" Golang
-" =====================================================================
-" Plug 'fatih/vim-go', { 'for': 'go' }
-" =====================================================================
 " Markdown
 " =====================================================================
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 " =====================================================================
-" PlantUML
-" =====================================================================
-Plug 'aklt/plantuml-syntax'
-" =====================================================================
-" Ruby
-" =====================================================================
-Plug 'janx/vim-rubytest', { 'for': 'ruby' }
-Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
-Plug 'skalnik/vim-vroom', { 'for': 'ruby' }
 call plug#end()
