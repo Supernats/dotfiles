@@ -1,7 +1,8 @@
 .git
 .gitignore
 .link.sh
-Brewfile
+Brewfile.work
+Brewfile.minimal
 README.md
 install_homwebrew.sh
 nonlinkers.txt
