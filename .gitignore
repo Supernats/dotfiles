@@ -7,3 +7,5 @@
 /.config/codeclimate/*
 .config/configstore/*
 .config/gtk-2.0/*
+.config/brewfile/*
+Brewfile

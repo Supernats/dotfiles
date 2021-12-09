@@ -1,6 +1,14 @@
 #!/bin/sh -
 
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+which -s brew
+if [[ $? != 0 ]] ; then
+    # Install Homebrew
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+    # Update Homebrew because it exists
+    brew update
+fi
 
-brew bundle install
+# Install packages from the global Brewfile
+brew bundle install --file=~/.config/brewfile/Brewfile
 exit 0

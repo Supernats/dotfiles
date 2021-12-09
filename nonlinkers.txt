@@ -1,6 +1,7 @@
 .git
 .gitignore
 .link.sh
+Brewfile
 Brewfile.work
 Brewfile.minimal
 README.md

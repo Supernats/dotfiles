@@ -17,15 +17,18 @@ DOTFILES=`find $DIR \
   2>/dev/null`
 
 # Handle Brewfile separately
-brewfile_source=$PWD/$BREWFILE
-brewfile_target=$HOME/`basename Brewfile`
+brewfile_source="$PWD/$BREWFILE"
+brewfile_target_dir="$HOME/.config/brewfile"
+brewfile_target="$brewfile_target_dir/Brewfile"
 
 rm -f $brewfile_target
-ln -s $brewile_source $brewfile_target
+mkdir -p $brewfile_target_dir
+ln -s $brewfile_source $brewfile_target
 
 for file in $DOTFILES; do
   destination=$HOME/`basename $file`
   rm -rf $destination
   ln -s $file $destination
 done
+
 exit 0
