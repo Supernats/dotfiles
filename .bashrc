@@ -56,6 +56,7 @@ eval "$(direnv hook bash)"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # rbenv
-eval "$(rbenv init -)"
+command -v rbenv >/dev/null 2>&1 && { eval "$(rbenv init -)"; }
+
 # nodenv
-eval "$(nodenv init -)"
+command -v nodenv >/dev/null 2>&1 && { eval "$(nodenv init -)"; }
